@@ -1,7 +1,7 @@
 {
     "name": "lucaspalomba/yearpicker-plugin",
     "type": "october-plugin",
-    "description": "No description provided yet...",
+    "description": "Add a Year Picker formwidget",
     "require": {
         "composer/installers": "~1.0"
     }
