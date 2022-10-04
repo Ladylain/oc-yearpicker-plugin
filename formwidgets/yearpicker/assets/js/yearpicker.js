@@ -51,10 +51,21 @@ var event_hide = 'hide.';
 var methods = {
     // Show datepicker
     showView: function showView() {
-        this.unbuild();
+        var oldValue = this.year;
+        this.year = this.getValue();
+
+        if (oldValue != this.year)
+        {   
+            this.unbuild()
+            this.viewYear = this.year;
+            this.renderYear();
+        }
+
         if (!this.build) {
             this.init();
         }
+
+        
 
         if (this.show) {
             return;
@@ -324,7 +335,6 @@ var Yearpicker = function () {
                 return;
             }
             this.build = true;
-
             var $this = this.$element,
                 options = this.options;
             var $template = $(options.template);
