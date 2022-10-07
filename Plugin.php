@@ -49,10 +49,10 @@ class Plugin extends PluginBase
             'maxYear' => [
                 'title' => 'Max. Year',
                 'type' => 'string'
-                
+
             ],
         ];
-        
+
         if(PluginManager::instance()->exists('RainLab.Builder')){
             Event::listen('pages.builder.registerControls', function($controlLibrary) use($properties) {
                 $controlLibrary->registerControl(
@@ -71,6 +71,16 @@ class Plugin extends PluginBase
     {
         return [
             \LucasPalomba\YearPicker\FormWidgets\YearPicker::class => 'yearpicker'
+        ];
+    }
+
+    /**
+     * registerContentFields
+     */
+    public function registerContentFields()
+    {
+        return [
+            \LucasPalomba\YearPicker\ContentFields\YearPicker::class => 'lp-yearpicker'
         ];
     }
 }
